@@ -1,10 +1,11 @@
 class Celsius
-  def initialize(temp)
+  def initialize(temp, date)
     @temp = temp
+    @date = date
   end
 
   def to_s
-    "#{convert} degrees C"
+    "#{@date} | #{@temp} degrees C | #{convert} degrees F"
   end
 
   private
@@ -12,10 +13,18 @@ class Celsius
     convert = (@temp * 1.8) + 32
     convert.round
   end
-
-
 end
 
-temp1 = Celsius.new(15)
+# get date
+puts "what is the date?"
+date = gets.chomp
 
-puts temp1.to_s
+# get temp in Celsius
+puts "what is the temp in Celsius?"
+temp = gets.chomp
+
+# create new instance of Celsius with the answers from previous answers being passed in as parameters
+temp2 = Celsius.new(temp.to_i, date)
+
+# call the instance using the to_s method which has converted the temp and dispalys all theinfo
+puts temp2.to_s

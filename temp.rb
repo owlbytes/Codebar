@@ -3,13 +3,19 @@ class Celsius
     @temp = temp
   end
 
+  def to_s
+    "#{convert} degrees C"
+  end
+
+  private
   def convert
     convert = (@temp * 1.8) + 32
-    convert = convert.round
-    puts " temp in farenheight is #{convert}"
+    convert.round
   end
+
+
 end
 
 temp1 = Celsius.new(15)
 
-temp1.convert
+puts temp1.to_s
